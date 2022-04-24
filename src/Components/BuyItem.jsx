@@ -9,7 +9,7 @@ toast.configure()
 const BuyItem = () => {
   const {cartItems} = useContext(myContext)
   const { Items, dispatch } = useContext(myContext)
-const [Item, setItem]= useState({})
+
   const addnewItem = (id, imgUrl, name, price) => {
     const newItem = {
       id,
@@ -17,7 +17,7 @@ const [Item, setItem]= useState({})
       name,
       price
     }
-    setItem(newItem)
+ 
     dispatch(
       {
         type: ADD_CART,

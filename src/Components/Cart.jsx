@@ -14,13 +14,23 @@ const Cart = () => {
     Total = parseFloat(Total) + parseFloat(item.price)
   })
   const handleBuy = () => {
-    dispatch({ type: BUY_NOW })
-    return toast.success("Purchase SuccesFull", { autoClose: 500, position: "top-center" })
+    if (cartItems.length === 0) {
+      return toast.warning("Your Cart is Empty!",
+        {
+          autoClose: 500,
+          position: "top-center"
+        })
+    } else {
+      dispatch({ type: BUY_NOW })
+      return toast.success("Purchase SuccesFull", { autoClose: 500, position: "top-center" })
+    }
+
+
 
   }
   return (
     <div>
-      <div className='bcontainer'>
+      <div id='bcontainer' className='bcontainer'>
         {cartItems.length === 0 ? (<h1>Your Cart is Empty</h1>) : (<CartItem />)}
         <div className="bottom-cart-data">
           <div className="right">
@@ -33,7 +43,7 @@ const Cart = () => {
           >Buy Now</button>
         </div>
       </div>
-      
+
     </div>
 
 

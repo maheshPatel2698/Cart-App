@@ -3,7 +3,7 @@
     margin: 0;
 }
 .bcontainer{
-   border: 2px solid red;
+ 
     width: 50%;
     height: auto;
     position: absolute;
@@ -14,6 +14,9 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
+
+    transition: all 0.95s;
 }
 .bottom-cart-data{
    
@@ -25,12 +28,18 @@
     align-items: center;
     border: 1px solid black;
 }
+
+
 @media(max-width:600px){
     .bcontainer{
         width: 100%;
         position: absolute;
         top: 4.2rem;
-        
+        transform: translateY(-55rem);
     }
 
+}
+.opencart{
+    transform: translateY(0rem);
+    background-color: whitesmoke;
 }
