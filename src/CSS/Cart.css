@@ -3,7 +3,6 @@
     margin: 0;
 }
 .bcontainer{
- 
     width: 50%;
     height: auto;
     position: absolute;
@@ -14,12 +13,10 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
-
     transition: all 0.95s;
+    
 }
 .bottom-cart-data{
-   
     margin: 1rem;
     width: auto;
     height: auto;
@@ -35,11 +32,12 @@
         width: 100%;
         position: absolute;
         top: 4.2rem;
-        transform: translateY(-55rem);
+        opacity: 0;
     }
 
 }
 .opencart{
-    transform: translateY(0rem);
+   opacity: 1;
+    transform: translateX(0rem);
     background-color: whitesmoke;
 }

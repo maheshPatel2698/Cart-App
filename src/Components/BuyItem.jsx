@@ -1,33 +1,33 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { v4 } from 'uuid'
 import "../CSS/BuyItem.css"
 import { toast } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import { ADD_CART } from '../Data/action.type'
 import myContext from '../Data/Context'
 toast.configure()
-
 const BuyItem = () => {
-  const {cartItems} = useContext(myContext)
+  const { cartItems } = useContext(myContext)
   const { Items, dispatch } = useContext(myContext)
 
-  const addnewItem = (id, imgUrl, name, price) => {
+  const addnewItem = (imgUrl, name, price) => {
     const newItem = {
-      id,
-      imgUrl,
-      name,
-      price
-    }
- 
-    dispatch(
-      {
-        type: ADD_CART,
-        payload: newItem
+        id:v4(),
+        imgUrl,
+        name,
+        price
       }
-    )
-  }
+
+      dispatch(
+        {
+          type: ADD_CART,
+          payload: newItem
+        }
+      )
   
+  }
   useEffect(() => {
-   localStorage.setItem("Items", JSON.stringify(cartItems))
+    localStorage.setItem("Items", JSON.stringify(cartItems))
   }, [cartItems])
 
   return (
@@ -43,7 +43,7 @@ const BuyItem = () => {
               <span className="price">Price: {curElem.price}  </span>
               <div className="bottom-data">
                 <button
-                  onClick={() => addnewItem(curElem.id, curElem.imgUrl, curElem.name, curElem.price)}
+                  onClick={() => addnewItem(curElem.imgUrl, curElem.name, curElem.price)}
                   className="btn btn-primary">Add to Cart</button>
               </div>
             </div>
